@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task Manager - Navigation</title>
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .nav-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 24px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .nav-card {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 32px;
+            box-shadow: var(--shadow-lg);
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            text-decoration: none;
+            display: block;
+        }
+        
+        .nav-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+        }
+        
+        .nav-card-icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 20px;
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 40px;
+        }
+        
+        .nav-card h2 {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 12px;
+        }
+        
+        .nav-card p {
+            color: var(--text-secondary);
+            font-size: 14px;
+            line-height: 1.6;
+        }
+        
+        .primary-icon {
+            background: rgba(79, 70, 229, 0.1);
+            color: var(--primary-color);
+        }
+        
+        .success-icon {
+            background: rgba(16, 185, 129, 0.1);
+            color: var(--success-color);
+        }
+        
+        .warning-icon {
+            background: rgba(245, 158, 11, 0.1);
+            color: var(--warning-color);
+        }
+        
+        .secondary-icon {
+            background: rgba(6, 182, 212, 0.1);
+            color: var(--secondary-color);
+        }
+    </style>
+</head>
+<body>
+    <div class="auth-container" style="min-height: 100vh; padding: 40px 20px;">
+        <div style="max-width: 1400px; width: 100%;">
+            <div style="text-align: center; margin-bottom: 60px;">
+                <h1 style="font-size: 48px; font-weight: 700; color: white; margin-bottom: 16px;">
+                    📋 Task Manager
+                </h1>
+                <p style="font-size: 20px; color: rgba(255, 255, 255, 0.9);">
+                    Application de Gestion de Tâches - Projet Éducatif MERN
+                </p>
+                <p style="font-size: 14px; color: rgba(255, 255, 255, 0.7); margin-top: 12px;">
+                    Phase 1 : HTML/CSS - Cliquez sur une page pour la visualiser
+                </p>
+            </div>
+            
+            <div class="nav-grid">
+                <!-- Authentication Pages -->
+                <a href="login.html" class="nav-card">
+                    <div class="nav-card-icon primary-icon">🔐</div>
+                    <h2>Page de Connexion</h2>
+                    <p>Interface de connexion pour les utilisateurs (Master et Employés)</p>
+                </a>
+                
+                <a href="first-login.html" class="nav-card">
+                    <div class="nav-card-icon warning-icon">🔒</div>
+                    <h2>Premier Accès</h2>
+                    <p>Changement obligatoire du mot de passe temporaire avec indicateur de force</p>
+                </a>
+                
+                <!-- Master Pages -->
+                <a href="master-dashboard.html" class="nav-card">
+                    <div class="nav-card-icon primary-icon">📊</div>
+                    <h2>Dashboard Master</h2>
+                    <p>Vue d'ensemble avec statistiques, progression des employés et activités récentes</p>
+                </a>
+                
+                <a href="employees.html" class="nav-card">
+                    <div class="nav-card-icon success-icon">👥</div>
+                    <h2>Gestion des Employés</h2>
+                    <p>Ajout, modification et visualisation des employés avec leur progression</p>
+                </a>
+                
+                <a href="tasks-management.html" class="nav-card">
+                    <div class="nav-card-icon secondary-icon">✅</div>
+                    <h2>Gestion des Tâches</h2>
+                    <p>Tableau Kanban pour la gestion des tâches et traitement des réclamations</p>
+                </a>
+                
+                <!-- Employee Pages -->
+                <a href="employee-dashboard.html" class="nav-card">
+                    <div class="nav-card-icon warning-icon">📝</div>
+                    <h2>Dashboard Employé</h2>
+                    <p>Vue des tâches assignées, progression personnelle et soumission de réclamations</p>
+                </a>
+            </div>
+            
+            <!-- Info Section -->
+            <div style="margin-top: 60px; padding: 32px; background: rgba(255, 255, 255, 0.95); border-radius: 16px; max-width: 800px; margin-left: auto; margin-right: auto;">
+                <h3 style="font-size: 24px; font-weight: 700; color: var(--text-primary); margin-bottom: 16px; text-align: center;">
+                    ℹ️ À propos du projet
+                </h3>
+                <div style="color: var(--text-secondary); line-height: 1.8;">
+                    <p style="margin-bottom: 12px;">
+                        <strong>Phase actuelle :</strong> HTML/CSS statique avec JavaScript de base
+                    </p>
+                    <p style="margin-bottom: 12px;">
+                        <strong>Prochaines étapes :</strong>
+                    </p>
+                    <ul style="margin-left: 20px; margin-bottom: 12px;">
+                        <li>Conversion en composants React</li>
+                        <li>Création de l'API REST avec Node.js/Express</li>
+                        <li>Intégration avec MongoDB</li>
+                        <li>Système d'authentification JWT</li>
+                        <li>Envoi d'emails automatiques</li>
+                    </ul>
+                    <p style="margin-bottom: 12px;">
+                        <strong>Technologies :</strong> MERN Stack (MongoDB, Express, React, Node.js)
+                    </p>
+                    <p>
+                        <strong>Objectif pédagogique :</strong> Apprendre le développement full-stack à travers un projet concret et professionnel
+                    </p>
+                </div>
+            </div>
+            
+            <div style="text-align: center; margin-top: 40px; color: rgba(255, 255, 255, 0.8); font-size: 14px;">
+                <p>© 2024 Task Manager - Projet Éducatif</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

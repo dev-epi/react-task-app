@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestion des Tâches - Task Manager</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="dashboard-layout">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <h2>📋 Task Manager</h2>
+                <p>Master Panel</p>
+            </div>
+
+            <nav class="sidebar-nav">
+                <a href="master-dashboard.html" class="sidebar-nav-item">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/>
+                    </svg>
+                    Dashboard
+                </a>
+
+                <a href="employees.html" class="sidebar-nav-item">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"/>
+                    </svg>
+                    Employés
+                </a>
+
+                <a href="tasks-management.html" class="sidebar-nav-item active">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"/>
+                    </svg>
+                    Gestion des tâches
+                </a>
+
+                <a href="#" class="sidebar-nav-item">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
+                    </svg>
+                    Rapports
+                </a>
+
+                <a href="#" class="sidebar-nav-item">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"/>
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
+                    </svg>
+                    Paramètres
+                </a>
+            </nav>
+
+            <div style="margin-top: auto; padding: 20px; border-top: 1px solid rgba(255, 255, 255, 0.1);">
+                <a href="login.html" class="sidebar-nav-item">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"/>
+                    </svg>
+                    Déconnexion
+                </a>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Header -->
+            <header class="header">
+                <div class="header-left">
+                    <h1>Gestion des Tâches</h1>
+                </div>
+                <div class="header-right">
+                    <button class="btn btn-primary" onclick="openAddTaskModal()">
+                        <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"/>
+                        </svg>
+                        Créer une tâche
+                    </button>
+                    <div class="user-info">
+                        <div class="user-avatar">AM</div>
+                        <div class="user-details">
+                            <h3>Admin Master</h3>
+                            <p>admin@entreprise.com</p>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Content -->
+            <div class="content-area">
+                <!-- Filters -->
+                <div class="card">
+                    <div style="display: flex; gap: 16px; flex-wrap: wrap;">
+                        <div class="form-group" style="flex: 1; min-width: 250px; margin: 0;">
+                            <input type="text" placeholder="Rechercher une tâche..." style="margin: 0;">
+                        </div>
+                        <div class="form-group" style="width: 200px; margin: 0;">
+                            <select style="margin: 0;">
+                                <option>Tous les statuts</option>
+                                <option>À faire</option>
+                                <option>En cours</option>
+                                <option>Terminé</option>
+                                <option>Réclamation</option>
+                            </select>
+                        </div>
+                        <div class="form-group" style="width: 200px; margin: 0;">
+                            <select style="margin: 0;">
+                                <option>Tous les employés</option>
+                                <option>Jean Dupont</option>
+                                <option>Sophie Martin</option>
+                                <option>Pierre Leblanc</option>
+                            </select>
+                        </div>
+                        <div class="form-group" style="width: 200px; margin: 0;">
+                            <select style="margin: 0;">
+                                <option>Toutes les priorités</option>
+                                <option>Urgente</option>
+                                <option>Haute</option>
+                                <option>Moyenne</option>
+                                <option>Basse</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tasks Kanban Board -->
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 24px;">
+                    <!-- Column: À faire -->
+                    <div class="card">
+                        <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 20px; padding-bottom: 16px; border-bottom: 3px solid var(--primary-color);">
+                            <div style="display: flex; align-items: center; gap: 8px;">
+                                <h3 style="font-size: 16px; font-weight: 600;">À faire</h3>
+                                <span class="badge badge-primary">5</span>
+                            </div>
+                        </div>
+
+                        <div class="task-list">
+                            <div class="task-item">
+                                <div class="task-item-header">
+                                    <div style="flex: 1;">
+                                        <div class="task-item-title">Développer l'API de paiement</div>
+                                        <div class="task-item-meta">
+                                            <span class="badge badge-danger">Urgente</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <p style="font-size: 14px; color: var(--text-secondary); margin: 12px 0;">
+                                    Intégrer l'API Stripe pour gérer les paiements en ligne
+                                </p>
+                                <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 12px;">
+                                    <div style="display: flex; align-items: center; gap: 8px;">
+                                        <div class="user-avatar" style="width: 24px; height: 24px; font-size: 10px;">JD</div>
+                                        <span style="font-size: 12px; color: var(--text-secondary);">Jean Dupont</span>
+                                    </div>
+                                    <span style="font-size: 12px; color: var(--text-secondary);">
+                                        <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24" style="display: inline; vertical-align: middle;">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+                                        </svg>
+                                        15 Fév
+                                    </span>
+                                </div>
+                            </div>
+
+                            <div class="task-item">
+                                <div class="task-item-header">
+                                    <div style="flex: 1;">
+                                        <div class="task-item-title">Design de la page d'accueil</div>
+                                        <div class="task-item-meta">
+                                            <span class="badge badge-warning">Haute</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <p style="font-size: 14px; color: var(--text-secondary); margin: 12px 0;">
+                                    Créer les maquettes pour la nouvelle page d'accueil
+                                </p>
+                                <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 12px;">
+                                    <div style="display: flex; align-items: center; gap: 8px;">
+                                        <div class="user-avatar" style="width: 24px; height: 24px; font-size: 10px;">SM</div>
+                                        <span style="font-size: 12px; color: var(--text-secondary);">Sophie Martin</span>
+                                    </div>
+                                    <span style="font-size: 12px; color: var(--text-secondary);">
+                                        <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24" style="display: inline; vertical-align: middle;">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+                                        </svg>
+                                        18 Fév
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Column: En cours -->
+                    <div class="card">
+                        <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 20px; padding-bottom: 16px; border-bottom: 3px solid var(--warning-color);">
+                            <div style="display: flex; align-items: center; gap: 8px;">
+                                <h3 style="font-size: 16px; font-weight: 600;">En cours</h3>
+                                <span class="badge badge-warning">3</span>
+                            </div>
+                        </div>
+
+                        <div class="task-list">
+                            <div class="task-item">
+                                <div class="task-item-header">
+                                    <div style="flex: 1;">
+                                        <div class="task-item-title">Optimisation de la base de données</div>
+                                        <div class="task-item-meta">
+                                            <span class="badge badge-warning">Haute</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <p style="font-size: 14px; color: var(--text-secondary); margin: 12px 0;">
+                                    Améliorer les performances des requêtes SQL
+                                </p>
+                                <div class="progress-bar" style="margin: 12px 0;">
+                                    <div class="progress-bar-fill warning" style="width: 65%"></div>
+                                </div>
+                                <div style="display: flex; justify-content: space-between; align-items: center;">
+                                    <div style="display: flex; align-items: center; gap: 8px;">
+                                        <div class="user-avatar" style="width: 24px; height: 24px; font-size: 10px;">PL</div>
+                                        <span style="font-size: 12px; color: var(--text-secondary);">Pierre Leblanc</span>
+                                    </div>
+                                    <span style="font-size: 12px; font-weight: 600; color: var(--warning-color);">65%</span>
+                                </div>
+                            </div>
+
+                            <div class="task-item">
+                                <div class="task-item-header">
+                                    <div style="flex: 1;">
+                                        <div class="task-item-title">Tests unitaires du module auth</div>
+                                        <div class="task-item-meta">
+                                            <span class="badge badge-info">Moyenne</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <p style="font-size: 14px; color: var(--text-secondary); margin: 12px 0;">
+                                    Écrire les tests pour le système d'authentification
+                                </p>
+                                <div class="progress-bar" style="margin: 12px 0;">
+                                    <div class="progress-bar-fill" style="width: 40%"></div>
+                                </div>
+                                <div style="display: flex; justify-content: space-between; align-items: center;">
+                                    <div style="display: flex; align-items: center; gap: 8px;">
+                                        <div class="user-avatar" style="width: 24px; height: 24px; font-size: 10px;">JD</div>
+                                        <span style="font-size: 12px; color: var(--text-secondary);">Jean Dupont</span>
+                                    </div>
+                                    <span style="font-size: 12px; font-weight: 600; color: var(--primary-color);">40%</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Column: Terminé -->
+                    <div class="card">
+                        <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 20px; padding-bottom: 16px; border-bottom: 3px solid var(--success-color);">
+                            <div style="display: flex; align-items: center; gap: 8px;">
+                                <h3 style="font-size: 16px; font-weight: 600;">Terminé</h3>
+                                <span class="badge badge-success">4</span>
+                            </div>
+                        </div>
+
+                        <div class="task-list">
+                            <div class="task-item" style="opacity: 0.8;">
+                                <div class="task-item-header">
+                                    <div style="flex: 1;">
+                                        <div class="task-item-title">Configuration du serveur</div>
+                                        <div class="task-item-meta">
+                                            <span class="badge badge-success">Terminé</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <p style="font-size: 14px; color: var(--text-secondary); margin: 12px 0;">
+                                    Mise en place du serveur de production
+                                </p>
+                                <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 12px;">
+                                    <div style="display: flex; align-items: center; gap: 8px;">
+                                        <div class="user-avatar" style="width: 24px; height: 24px; font-size: 10px;">MD</div>
+                                        <span style="font-size: 12px; color: var(--text-secondary);">Marie Dubois</span>
+                                    </div>
+                                    <span style="font-size: 12px; color: var(--success-color);">
+                                        <svg width="14" height="14" fill="currentColor" viewBox="0 0 20 20" style="display: inline; vertical-align: middle;">
+                                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                                        </svg>
+                                        14 Fév
+                                    </span>
+                                </div>
+                            </div>
+
+                            <div class="task-item" style="opacity: 0.8;">
+                                <div class="task-item-header">
+                                    <div style="flex: 1;">
+                                        <div class="task-item-title">Documentation API</div>
+                                        <div class="task-item-meta">
+                                            <span class="badge badge-success">Terminé</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <p style="font-size: 14px; color: var(--text-secondary); margin: 12px 0;">
+                                    Rédiger la documentation complète de l'API
+                                </p>
+                                <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 12px;">
+                                    <div style="display: flex; align-items: center; gap: 8px;">
+                                        <div class="user-avatar" style="width: 24px; height: 24px; font-size: 10px;">SM</div>
+                                        <span style="font-size: 12px; color: var(--text-secondary);">Sophie Martin</span>
+                                    </div>
+                                    <span style="font-size: 12px; color: var(--success-color);">
+                                        <svg width="14" height="14" fill="currentColor" viewBox="0 0 20 20" style="display: inline; vertical-align: middle;">
+                                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                                        </svg>
+                                        13 Fév
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Claims Section -->
+                <div class="card" style="margin-top: 24px;">
+                    <div class="card-header">
+                        <h2>Réclamations en attente</h2>
+                        <span class="badge badge-danger">7</span>
+                    </div>
+
+                    <div class="task-list">
+                        <div class="task-item" style="border-left: 4px solid var(--danger-color);">
+                            <div class="task-item-header">
+                                <div style="flex: 1;">
+                                    <div class="task-item-title">Réclamation : Spécifications incomplètes</div>
+                                    <div class="task-item-meta">
+                                        <span>
+                                            <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/>
+                                            </svg>
+                                            Jean Dupont
+                                        </span>
+                                        <span>
+                                            <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                                            </svg>
+                                            Il y a 5 min
+                                        </span>
+                                        <span class="badge badge-danger">Urgent</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <p style="font-size: 14px; color: var(--text-secondary); margin: 12px 0;">
+                                Les spécifications pour l'API de paiement ne sont pas complètes. Il manque les cas d'erreur et les webhooks.
+                            </p>
+                            <div style="display: flex; gap: 8px; margin-top: 12px;">
+                                <button class="btn btn-success btn-icon">
+                                    <svg width="16" height="16" fill="currentColor" viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                                    </svg>
+                                </button>
+                                <button class="btn btn-outline" style="flex: 1;">Voir la tâche</button>
+                                <button class="btn btn-primary">Répondre</button>
+                            </div>
+                        </div>
+
+                        <div class="task-item" style="border-left: 4px solid var(--warning-color);">
+                            <div class="task-item-header">
+                                <div style="flex: 1;">
+                                    <div class="task-item-title">Réclamation : Délai trop court</div>
+                                    <div class="task-item-meta">
+                                        <span>
+                                            <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/>
+                                            </svg>
+                                            Pierre Leblanc
+                                        </span>
+                                        <span>
+                                            <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                                            </svg>
+                                            Il y a 1h
+                                        </span>
+                                        <span class="badge badge-warning">Haute</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <p style="font-size: 14px; color: var(--text-secondary); margin: 12px 0;">
+                                Le délai de 3 jours pour optimiser toute la base de données est irréaliste. Il faudrait au moins 2 semaines.
+                            </p>
+                            <div style="display: flex; gap: 8px; margin-top: 12px;">
+                                <button class="btn btn-success btn-icon">
+                                    <svg width="16" height="16" fill="currentColor" viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                                    </svg>
+                                </button>
+                                <button class="btn btn-outline" style="flex: 1;">Voir la tâche</button>
+                                <button class="btn btn-primary">Répondre</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Add Task Modal -->
+    <div id="addTaskModal" class="modal-overlay" style="display: none;">
+        <div class="modal">
+            <div class="modal-header">
+                <h3>Créer une nouvelle tâche</h3>
+                <button onclick="closeAddTaskModal()" style="background: none; border: none; cursor: pointer; font-size: 24px; color: var(--text-secondary);">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="addTaskForm">
+                    <div class="form-group">
+                        <label for="taskTitle">Titre de la tâche *</label>
+                        <input type="text" id="taskTitle" name="taskTitle" placeholder="Ex: Développer l'API REST" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="taskDescription">Description *</label>
+                        <textarea id="taskDescription" name="taskDescription" placeholder="Décrivez la tâche en détail..." required></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="assignedTo">Assigner à *</label>
+                        <select id="assignedTo" name="assignedTo" required>
+                            <option value="">Sélectionner un employé</option>
+                            <option value="1">Jean Dupont</option>
+                            <option value="2">Sophie Martin</option>
+                            <option value="3">Pierre Leblanc</option>
+                            <option value="4">Marie Dubois</option>
+                        </select>
+                    </div>
+
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
+                        <div class="form-group">
+                            <label for="priority">Priorité *</label>
+                            <select id="priority" name="priority" required>
+                                <option value="">Sélectionner</option>
+                                <option value="urgent">Urgente</option>
+                                <option value="high">Haute</option>
+                                <option value="medium">Moyenne</option>
+                                <option value="low">Basse</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="dueDate">Date limite *</label>
+                            <input type="date" id="dueDate" name="dueDate" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="tags">Tags (optionnel)</label>
+                        <input type="text" id="tags" name="tags" placeholder="frontend, api, urgent...">
+                        <small>Séparez les tags par des virgules</small>
+                    </div>
+
+                    <div class="alert alert-info">
+                        <svg width="20" height="20" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"/>
+                        </svg>
+                        <div>
+                            L'employé sélectionné recevra une notification par email concernant cette nouvelle tâche.
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-outline" onclick="closeAddTaskModal()">Annuler</button>
+                <button type="submit" form="addTaskForm" class="btn btn-primary">Créer la tâche</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/tasks.js"></script>
+</body>
+</html>

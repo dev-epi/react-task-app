@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Premier accès - Changer le mot de passe</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    
+    <div class="auth-container">
+        <div class="auth-card">
+            <div class="logo">
+                <h1>📋 Task Manager</h1>
+                <p>Gérez vos tâches efficacement</p>
+            </div>
+
+            <form id="loginForm">
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input 
+                        type="email" 
+                        id="email" 
+                        name="email" 
+                        placeholder="votre.email@entreprise.com"
+                        required
+                    >
+                </div>
+
+                <div class="form-group">
+                    <label for="password">Mot de passe</label>
+                    <input 
+                        type="password" 
+                        id="password" 
+                        name="password" 
+                        placeholder="••••••••"
+                        required
+                    >
+                </div>
+
+                <div class="form-group" style="display: flex; justify-content: space-between; align-items: center;">
+                    <label style="display: flex; align-items: center; gap: 8px; margin: 0;">
+                        <input type="checkbox" name="remember">
+                        <span style="font-weight: normal;">Se souvenir de moi</span>
+                    </label>
+                    <a href="#" style="font-size: 14px; color: var(--primary-color); text-decoration: none;">
+                        Mot de passe oublié ?
+                    </a>
+                </div>
+
+                <button type="submit" class="btn btn-primary btn-full">
+                    Se connecter
+                </button>
+            </form>
+
+            <div style="margin-top: 24px; text-align: center; color: var(--text-secondary); font-size: 14px;">
+                <p>© 2024 Task Manager - Tous droits réservés</p>
+            </div>
+        </div>
+    </div>
+
+    </body>
+</html>
