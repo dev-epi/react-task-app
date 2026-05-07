@@ -277,16 +277,16 @@ export default function TasksManagement() {
             <div className="modal-body">
               <form id="addTaskForm" onSubmit={handleSubmit}>
                 <div className="form-group">
-                  <label htmlFor="taskTitle">Titre de la tâche *</label>
-                  <input type="text" id="taskTitle" name="taskTitle" placeholder="Ex: Développer l'API REST" value={form.taskTitle} onChange={handleChange} required />
+                  <label htmlFor="title">Titre de la tâche *</label>
+                  <input type="text" id="title" name="title" placeholder="Ex: Développer l'API REST" value={form.title} onChange={handleChange} required />
                 </div>
                 <div className="form-group">
-                  <label htmlFor="taskDescription">Description *</label>
-                  <textarea id="taskDescription" name="taskDescription" placeholder="Décrivez la tâche en détail..." value={form.taskDescription} onChange={handleChange} required></textarea>
+                  <label htmlFor="description">Description *</label>
+                  <textarea id="description" name="description" placeholder="Décrivez la tâche en détail..." value={form.description} onChange={handleChange} required></textarea>
                 </div>
                 <div className="form-group">
-                  <label htmlFor="assignedTo">Assigner à *</label>
-                  <select id="assignedTo" name="assignedTo" value={form.assignedTo} onChange={handleChange} required>
+                  <label htmlFor="assignee">Assigner à *</label>
+                  <select id="assignee" name="assignee" value={form.assignee} onChange={handleChange} required>
                     <option value="">Sélectionner un employé</option>
                     <option value="1">Jean Dupont</option>
                     <option value="2">Sophie Martin</option>
